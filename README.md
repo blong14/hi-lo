@@ -1,24 +1,22 @@
-# README
+# Hi Lo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+Remove ".example" from Procfile
 
-* Ruby version
+`bundle install` and `npm install`
 
-* System dependencies
+Run `foreman start` to preview application. http://localhost:5000
 
-* Configuration
+## Testing
 
-* Database creation
+Running `npm run test` will run the unit tests with karma.
 
-* Database initialization
+## Deploying
+`git checkout -b production`
+`rake webpack:compile`
+`git push herokku production:master`
 
-* How to run the test suite
+## TODO:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Write more tests
