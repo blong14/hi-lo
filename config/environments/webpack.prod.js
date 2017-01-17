@@ -41,7 +41,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-path
      */
-    path: path.join(__dirname, '..', 'public', 'public'),
+    path: path.join(__dirname, '..', '..', 'public', 'webpack'),
 
     /**
      * Specifies the name of each output file on disk.
