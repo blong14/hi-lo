@@ -24,5 +24,10 @@ export default class GameController {
     this.playerService.switchPlayers();
     this.dealer = this.playerService.getDealer();
     this.player = this.playerService.getPlayer();
+    this.gameService.onSwitch();
+  }
+
+  canPass() {
+    return this.gameService.canPass();
   }
 }

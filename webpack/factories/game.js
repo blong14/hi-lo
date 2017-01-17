@@ -17,6 +17,9 @@ const valueMap = new Map([
   ['ACE', 14]
 ]);
 
+const PASS_THRESHOLD = 3;
+
+
 export default class Game {
 
   constructor(args) {
@@ -51,6 +54,16 @@ export default class Game {
     return this.currentCard;
   }
 
+  canPass() {
+    return this.plays >= PASS_THRESHOLD;
+  }
+
+  onPlayerSwitch() {
+    this.plays = 0;
+    this.cardsInPile = 0;
+    this.currentCard = null;
+  }
+
   makePlay(play) {
     let result = false;
     if (play.higher) {
@@ -63,6 +76,8 @@ export default class Game {
     if (!result) {
       play.player.score = play.player.score + this.score();
       this.resetPlays();
+      this.setNumberOfCardsInPile(0);
+      this.currentCard = null;
     }
 
     return result;

@@ -1,17 +1,18 @@
 <div class="row">
   <div class="small-12 medium-4 columns">
-    <player-component on-draw="$ctrl.onDraw()" on-pass="$ctrl.onPass()"></player-component>
+    <a class="button" ng-click="$ctrl.onDraw()">Draw Card</a>
+    <a class="button" ng-click="$ctrl.onPass()" ng-if="$ctrl.canPass()">Pass</a>
   </div>
   <div class="small-12 medium-4 columns">
     <card-component current-card="$ctrl.card"></card-component>
   </div>
   <div class="small-12 medium-4 columns">
-    <input type="radio" ng-model="$ctrl.decision" value="high" />
-    <input type="radio" ng-model="$ctrl.decision" value="low" />
+    <label><input type="radio" ng-model="$ctrl.decision" value="high" />High</label>
+    <label><input type="radio" ng-model="$ctrl.decision" value="low" />Low</label>
   </div>
 </div>
-<p>{{$ctrl.result}}</p>
-<p>{{$ctrl.gameService.currentGame.cardsInPile}}
+<p>Result {{$ctrl.result}}</p>
+<p>Cards in Pile {{$ctrl.gameService.currentGame.cardsInPile}}
 <div class="row">
   <div class="small-12 columns">
     <score-component></score-component>
