@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="small-12 medium-4 columns">
+    <player-component on-draw="$ctrl.onDraw()" on-pass="$ctrl.onPass()"></player-component>
+  </div>
+  <div class="small-12 medium-4 columns">
+    <card-component current-card="$ctrl.card"></card-component>
+  </div>
+  <div class="small-12 medium-4 columns">
+    <input type="radio" ng-model="$ctrl.decision" value="high" />
+    <input type="radio" ng-model="$ctrl.decision" value="low" />
+  </div>
+</div>
+<p>{{$ctrl.result}}</p>
+<p>{{$ctrl.gameService.currentGame.cardsInPile}}
+<div class="row">
+  <div class="small-12 columns">
+    <score-component></score-component>
+  </div>
+</div>
