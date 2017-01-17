@@ -1,0 +1,4 @@
+# Run Rails & Webpack concurrently
+# Example file from webpack-rails gem
+rails: bundle exec rails server
+webpack: export NODE_ENV=dev && webpack-dev-server --config config/webpack.config.js
