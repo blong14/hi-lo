@@ -2,16 +2,16 @@
   <div class="callout large text-center">
     <div class="row">
       <div class="small-12 medium-4 columns">
-        <p ng-class="{'active': $ctrl.isActive($ctrl.player1)}">Player 1 Score</p>
-        {{$ctrl.player1.score}}
+        <p ng-class="{'active': $ctrl.playerService.player1.isPlayer()}">Player 1 Score</p>
+        {{$ctrl.playerService.player1.score}}
       </div>
       <div class="small-12 medium-4 columns">
         <p>Plays</p>
         {{$ctrl.gameService.currentGame.plays}}
       </div>
       <div class="small-12 medium-4 columns">
-        <p ng-class="{'active': $ctrl.isActive($ctrl.player2)}">Player 2 Score</p>
-        {{$ctrl.player2.score}}
+        <p ng-class="{'active': $ctrl.playerService.player2.isPlayer()}">Player 2 Score</p>
+        {{$ctrl.playerService.player2.score}}
       </div>
     </div>
   </div>

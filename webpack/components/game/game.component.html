@@ -2,22 +2,31 @@
   <div class="row game-component">
     <div class="small-12 medium-4 columns text-center">
       <a class="button button-primary" ng-click="$ctrl.onDraw()">Draw Card</a>
-      <a class="button button-primary" ng-click="$ctrl.onPass()" ng-if="$ctrl.canPass()">Pass</a>
+      <a class="button button-primary alert" ng-click="$ctrl.onResetGame()">Reset Game</a>
     </div>
     <div class="small-12 medium-4 columns text-center">
-      <card-component current-card="$ctrl.card"></card-component>
+      <card-component current-card="$ctrl.card" ng-if="$ctrl.card"></card-component>
     </div>
     <div class="small-12 medium-4 columns">
       <div class="callout text-center">
-        <label><input type="radio" ng-model="$ctrl.decision" value="high" />High</label>
-        <label><input type="radio" ng-model="$ctrl.decision" value="low" />Low</label>
+        <div class="row">
+          <div class="small-4 columns">
+            <label><input type="radio" ng-model="$ctrl.decision" value="low" />Low</label>
+          </div>
+          <div class="small-4 columns">
+            <label><input type="radio" ng-model="$ctrl.decision" value="high" />High</label>
+          </div>
+           <div class="small-4 columns">
+            <a class="button button-primary" ng-class="{'disabled': !$ctrl.canPass()}" ng-click="$ctrl.onPass()">Pass</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="small-12 columns">
-      <p>Result {{$ctrl.result}}</p>
-      <p>Cards in Pile {{$ctrl.gameService.currentGame.cardsInPile}}
+      <p>Cards Remaining: {{$ctrl.gameService.currentGame.cardsRemaining}}
+      <p>Cards face up: {{$ctrl.gameService.currentGame.cardsInPile}}
     </div>
   </div>
   <div class="row">

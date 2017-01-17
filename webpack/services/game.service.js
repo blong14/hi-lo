@@ -11,6 +11,7 @@ export default class GameService {
       PlayerService.player2
     ]);
     this.deckService = DeckService;
+    this.playerService = PlayerService;
   }
 
   drawCard() {
@@ -63,10 +64,14 @@ export default class GameService {
 
   onSwitch() {
     this.deckService.playingDeck = null;
-    this.currentGame.onPLayerSwitch();
+    this.currentGame.onPlayerSwitch();
   }
 
   resetGame() {
-    this.currentGame = this.gameFactory.createGame();
+    this.playerService.init();
+    this.currentGame = this.gameFactory.createGame([
+      this.playerService.player1,
+      this.playerService.player2
+    ]);
   }
 }

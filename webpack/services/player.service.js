@@ -5,10 +5,8 @@ export default class PlayerService {
 
   /* @ngInject */
   constructor(PlayerFactory) {
-    this.player1 = PlayerFactory.createPlayer({type: 'dealer'}); //Defaults to dealer
-    this.player2 = PlayerFactory.createPlayer({type: 'player'});
-    this.currentDealer = this.player1;
-    this.currentPlayer = this.player2;
+    this.playerFactory = PlayerFactory;
+    this.init();
   }
 
   getDealer() {
@@ -31,5 +29,12 @@ export default class PlayerService {
       this.player1.setPlayerType('dealer');
       this.currentDealer = this.player1;
     }
+  }
+
+  init() {
+    this.player1 = this.playerFactory.createPlayer({type: 'dealer'}); //Defaults to dealer
+    this.player2 = this.playerFactory.createPlayer({type: 'player'});
+    this.currentDealer = this.player1;
+    this.currentPlayer = this.player2;
   }
 }

@@ -21,6 +21,8 @@ export default class GameController {
   }
 
   onPass() {
+    if (!this.canPass()) return;
+
     this.playerService.switchPlayers();
     this.dealer = this.playerService.getDealer();
     this.player = this.playerService.getPlayer();
@@ -29,5 +31,10 @@ export default class GameController {
 
   canPass() {
     return this.gameService.canPass();
+  }
+
+  onResetGame() {
+    this.card = null;
+    this.gameService.resetGame();
   }
 }
