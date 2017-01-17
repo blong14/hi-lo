@@ -1,5 +1,6 @@
 'use strict';
 
+
 class PlayingDeck {
 
   constructor(args) {
@@ -16,7 +17,7 @@ export default class DeckService {
     this.$q = $q;
     this.$http = $http;
     this.playingDeck = null;
-    this.pileName = "faceup";
+    this.pileName = new Date().getTime().toString();
   }
 
   getDeck() {
@@ -49,7 +50,12 @@ export default class DeckService {
     });
   }
 
+  resetPile() {
+    this.pileName = new Date().getTime().toString();
+  }
+
   shuffleDeck() {
+    this.resetPile();
     this.playingDeck = null;
     return this.getDeck();
   }

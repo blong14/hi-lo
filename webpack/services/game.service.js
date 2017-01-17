@@ -16,9 +16,6 @@ export default class GameService {
 
   drawCard() {
     return this.deckService.drawCard().then((cards) => {
-      this.deckService.addToPile(cards[0]).then((response) => {
-        this.setNumberOfCardsInPile(response.data.piles[this.deckService.pileName].remaining);
-      });
       this.currentGame.cardsRemaining = this.deckService.playingDeck.remaining;
       return cards[0];
     });
@@ -26,6 +23,12 @@ export default class GameService {
 
   setCurrentCard(card) {
     this.currentGame.currentCard = card;
+  }
+
+  addCardToPile(card) {
+    this.deckService.addToPile(card).then((response) => {
+      this.setNumberOfCardsInPile(response.data.piles[this.deckService.pileName].remaining);
+    });
   }
 
   setNumberOfCardsInPile(count) {
@@ -56,15 +59,15 @@ export default class GameService {
     let result = this.currentGame.makePlay(play);
     if (!result) {
       // reset the pile
-      this.deckService.shuffleDeck();
+      this.deckService.resetPile();
     }
 
     return result;
   }
 
   onSwitch() {
-    this.deckService.playingDeck = null;
     this.currentGame.onPlayerSwitch();
+    this.deckService.resetPile();
   }
 
   resetGame() {
@@ -73,5 +76,6 @@ export default class GameService {
       this.playerService.player1,
       this.playerService.player2
     ]);
+    this.deckService.shuffleDeck();
   }
 }

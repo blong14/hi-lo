@@ -6,7 +6,7 @@ import {default as Factories} from '../factories/factories';
 
 describe('Player Service Test', () => {
 
-  let PlayerService;
+  let PlayerService, PlayerFactory;
 
   beforeEach(() => {
     window.module(Services.name);

@@ -61,7 +61,6 @@ export default class Game {
   onPlayerSwitch() {
     this.plays = 0;
     this.cardsInPile = 0;
-    this.currentCard = null;
   }
 
   makePlay(play) {
@@ -76,7 +75,6 @@ export default class Game {
     if (!result) {
       play.player.score = play.player.score + this.score();
       this.resetPlays();
-      this.setNumberOfCardsInPile(0);
       this.currentCard = null;
     }
 

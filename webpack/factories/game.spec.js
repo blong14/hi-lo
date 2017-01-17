@@ -33,35 +33,35 @@ describe('Game Test', () => {
   describe('make play', () => {
     it('records a play', () => {
       game.currentCard = {value: '2'};
-      let result = game.makePlay({higher: true, card: 'JACK'});
+      let result = game.makePlay({player: {score: 0}, higher: true, card: 'JACK'});
       expect(result).toBe(true);
     });
 
     it('records play as lower against higher card', () => {
       // Mock current game
       game.currentCard = {value: 'QUEEN'};
-      let result = game.makePlay({lower: true, card: '2'});
+      let result = game.makePlay({player: {score: 0}, lower: true, card: '2'});
       expect(result).toBe(true);
     });
 
     it('records play as higher against higher card', () => {
       // Mock current game
       game.currentCard = {value: 'KING'};
-      let result = game.makePlay({higher: true, card: '2'});
+      let result = game.makePlay({player: {score: 0}, higher: true, card: '2'});
       expect(result).toBe(false);
     });
 
     it('records play as lower against lower card', () => {
       // Mock current game
       game.currentCard = {value: 'QUEEN'};
-      let result = game.makePlay({lower: true, card: 'KING'});
+      let result = game.makePlay({player: {score: 0}, lower: true, card: 'KING'});
       expect(result).toBe(false);
     });
 
     it('records play as higher against same card', () => {
       // Mock current game
       game.currentCard = {value: '2'};
-      let result = game.makePlay({higher: true, card: '2'});
+      let result = game.makePlay({player: {score: 0}, higher: true, card: '2'});
       expect(result).toBe(false);
     });
   });

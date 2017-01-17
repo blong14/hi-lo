@@ -9,14 +9,30 @@ export default class GameController {
     this.playerService = PlayerService;
     this.dealer = PlayerService.getDealer();
     this.player = PlayerService.getPlayer();
+    this.faceUpCards = 0;
+    this.initialDraw = true;
+    this.decision = 'low';
   }
 
   onDraw() {
     this.gameService.drawCard().then((card) => {
       this.card = card;
+
+      if (!this.card) {
+        alert('game over');
+        return;
+      }
+
+      if (this.initialDraw) {
+        this.initialDraw = false;
+        this.gameService.setCurrentCard(card);
+        this.gameService.addCardToPile(card);
+        return;
+      }
       let params = {player: this.player, card: card.value, higher: this.decision === 'high', lower: this.decision === 'low'};
       this.result = this.gameService.makePlay(params);
       this.gameService.setCurrentCard(card);
+      this.gameService.addCardToPile(card);
     });
   }
 
@@ -35,6 +51,7 @@ export default class GameController {
 
   onResetGame() {
     this.card = null;
+    this.initialDraw = true;
     this.gameService.resetGame();
   }
 }
