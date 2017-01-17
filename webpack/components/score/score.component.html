@@ -1,9 +1,6 @@
-
-
-
 <div class="row">
   <div class="small-12 medium-4 columns">
-    <p>Player 1 Score</p>
+    <p ng-class="{'active': $ctrl.isActive($ctrl.player1)}">Player 1 Score</p>
     {{$ctrl.player1.score}}
   </div>
   <div class="small-12 medium-4 columns">
@@ -11,7 +8,7 @@
     {{$ctrl.gameService.currentGame.plays}}
   </div>
   <div class="small-12 medium-4 columns">
-    <p>Player 2 Score</p>
+    <p ng-class="{'active': $ctrl.isActive($ctrl.player2)}">Player 2 Score</p>
     {{$ctrl.player2.score}}
   </div>
 </div>

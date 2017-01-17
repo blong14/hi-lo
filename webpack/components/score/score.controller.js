@@ -9,4 +9,8 @@ export default class ScoreController {
     this.player1 = PlayerService.player1;
     this.player2 = PlayerService.player2;
   }
+
+  isActive(player) {
+    return player.isPlayer();
+  }
 }
