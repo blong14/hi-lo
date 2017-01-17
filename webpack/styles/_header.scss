@@ -1,0 +1,15 @@
+.header {
+  text-align: center;
+  background: $header-bg;
+  background-size: cover;
+  position: relative;
+  overflow: visible;
+  padding-top: $header-height;
+  padding-bottom: $header-height;
+  margin-bottom: $header-height + 1;
+  box-shadow: $box-shadow;
+
+  .headline {
+    color: #ffe;
+  }
+}

@@ -1,6 +1,12 @@
 @import '~foundation-sites/scss/foundation';
 @include foundation-everything;
 
+@import 'variables';
+@import 'header';
+@import 'app';
+@import 'score';
+@import 'card';
+@import 'components';
 
 .browsehappy {
   margin: 0.2em 0;
@@ -12,9 +18,4 @@
 body {
   padding: 0;
   background: rgb(235, 235, 235);
-}
-
-.active {
-  color: red;
-  font-weight: 700;
 }

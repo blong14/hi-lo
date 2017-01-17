@@ -1,0 +1,25 @@
+.button-primary {
+  border-radius: $global-radius;
+  box-shadow: $box-shadow;
+}
+
+.callout {
+  box-shadow: $box-shadow;
+  border-radius: $global-radius;
+}
+
+
+.circlenumber {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #0b4f69;
+  position: relative;
+  h3 {
+    line-height: 1px;
+    color: #0b4f69;
+    position: relative;
+    text-align: center;
+    font-weight: normal;
+  }
+}
+

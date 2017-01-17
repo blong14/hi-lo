@@ -15,11 +15,12 @@ import ngAnimate from 'angular-animate';
 // custom module imports
 import {default as AppComponent} from './app.component';
 import {default as Components} from './components/components';
+import {default as Directives} from './directives/directives';
 import {default as Services} from './services/services';
 import {default as Factories} from './factories/factories';
 import './styles/main.scss';
 
-let app = angular.module('HiLoApp', [ngAnimate, Components.name, Services.name, Factories.name])
+let app = angular.module('HiLoApp', [ngAnimate, Components.name, Directives.name, Services.name, Factories.name])
 
 app.directive('app', AppComponent);
 
